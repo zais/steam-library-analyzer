@@ -2,7 +2,7 @@
 ##############################################################################
 # Author : https://github.com/zais
 # Version: 0.1.20140117.2221
-# License: GPLv2 ('gnu.org/licenses/gpl-2.0.html‎')
+# License: GPLv2 ('gnu.org/licenses/gpl-2.0.html')
 ##############################################################################
 # Prereqs:
 #   Steam level:
