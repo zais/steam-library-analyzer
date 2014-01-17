@@ -60,7 +60,7 @@ Dependencies:
 
 ***Steam level dependencies:***
 
-Steam profile have to be public (at least when you run update)
+* Steam profile have to be public (at least when you run update)
      
 ***OS level dependencies:***
 
