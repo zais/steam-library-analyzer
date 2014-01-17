@@ -2,7 +2,7 @@ Steam Library Analyzer (CLI)
 ======================
 
 Just another steam related trash on the internet.
-I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations.
+I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations. My knowledge is empirical, don't blame me for that :).
 
 
 Why do I need it?
