@@ -298,7 +298,7 @@ do_check() {
   which wget       >/dev/null || \
   which jq         >/dev/null
   if [ $? -ne 0 ]; then
-    echo "ERROR: Check that perl/sqlite3/xmlstarlet/wget/jq are inatalled."
+    echo "ERROR: Check that perl/sqlite3/xmlstarlet/wget/jq are installed."
     exit 1
   fi
 
