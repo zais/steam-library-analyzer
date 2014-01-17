@@ -79,6 +79,11 @@ How to use:
 3. Run: ``` ./steam_library_analyzer.sh update ``` (add 'friends' if you'd like to analyze friends libraries as well)
 4. Play with reports: ``` ./steam_library_analyzer.sh local_coop ```
 
+Recommendations:
+-----------
+
+* Filter number of accounts to analyze, use ``` friends="..." ``` if you are running script with ``` update friends ``` option.
+* Do not run it to frequently (we all love Steam, do not overwhelm them with DDoS attacks ;) )
 
 
 Steam API used:
