@@ -12,7 +12,7 @@
 #      sqlite3    ('sqlite.org')
 #      xmlstarlet ('xmlstar.sourceforge.net')
 #      wget       ('gnu.org/s/wget')
-#      jq         ('brew.sh')
+#      jq         ('stedolan.github.io/jq')
 ##############################################################################
 
 steam_id="11111111111111111"
