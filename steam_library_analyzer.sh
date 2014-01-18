@@ -1,7 +1,7 @@
 #!/bin/sh
 ##############################################################################
 # Author : https://github.com/zais
-# Version: 0.1.20140117.2221
+# Version: 0.1.20140118.1230
 # License: GPLv2 ('gnu.org/licenses/gpl-2.0.html')
 ##############################################################################
 # Prereqs:
@@ -22,7 +22,7 @@ log="/tmp/$$.log"
 do_process_steam_id() {
   user_id=$1
   # get fresh profile xml
-  wget "http://steamcommunity.com/profiles/${user_id}/games?tab=all&xml=1" -O ${user_id}.xml 2>$log
+  wget "http://steamcommunity.com/profiles/${user_id}/games?tab=all&xml=1" -O ${user_id}.xml 2>>$log
   
   user_name=$(xmlstarlet sel -t -v gamesList/steamID ${user_id}.xml)
   if [ "x${user_name}" = "x" ]; then
@@ -49,10 +49,10 @@ do_process_steam_id() {
     echo "\"${user_id}\",\"${id}\",\"${hours_spent}\"" >>libraries.csv
   
     # skip games alredy in csv
-    grep '^"'${id}'",' -q games.csv && continue
+    grep '^"'${id}'",' -q games.csv 2>>$log && continue
   
     # get json data
-    wget "http://store.steampowered.com/api/appdetails/?appids=${id}&cc=us&l=english" -O ${id}.json 2>$log
+    wget "http://store.steampowered.com/api/appdetails/?appids=${id}&cc=us&l=english" -O ${id}.json 2>>$log
     # jq can not work with numeric node names
     perl -i.orig -pe 's/^\{"'${id}'":/{"game":/' ${id}.json 
     # check if json data valid (api reterned 'success' and we can parse it)
@@ -79,7 +79,7 @@ do_process_steam_id() {
       # add game (one string per category)
       echo "\"${id}\",\"${gtype}\",\"${name}\",\"${genre}\",\"${category}\",\"${platform}\",\"${controller}\",\"${score}\",\"${price}\"" >> games.csv
     else
-      echo "WARNING: $id ("$(xmlstarlet sel -t -v gamesList/games/game[appID=${id}]/name ${user_id}.xml)") parsed failed."
+      echo "WARNING: $id ("$(xmlstarlet sel -t -v gamesList/games/game[appID=${id}]/name ${user_id}.xml)") parse failed."
       mkdir -p failed && mv ${id}.json* failed/
     fi
   done
@@ -88,10 +88,11 @@ do_process_steam_id() {
 
 do_update() {
   mv libraries.csv libraries.csv.$(date +%F) 2>/dev/null
+  mv users.csv     users.csv.$(date +%F)     2>/dev/null
   mv games.csv     games.csv.$(date +%F)     2>/dev/null
   mv games.db      games.db.$(date +%F)      2>/dev/null
   mv friends.xml   friends.xml.$(date +%F)   2>/dev/null
-  mkdir -p archive && mv *.$(date +%F) archive/ && mv *.xml archive/
+  mkdir -p archive && mv *.$(date +%F) archive/
   
   # include friends to db
   echo "$*" | grep -q friends
@@ -103,9 +104,10 @@ do_update() {
   fi
   
   # generate csv
-  for id in ${steam_id} ${friends}
+  for user_id in ${steam_id} ${friends}
   do
-    do_process_steam_id $id
+    do_process_steam_id $user_id
+    mv ${user_id}.xml archive/
   done
   
   # generate sqlite db for reports :)
@@ -233,7 +235,7 @@ do_report_friends_coop() {
 sqlite3 games.db <<EOF
 .head on
 .mode column
-.width 40 10 8 5 80
+.width 40 11 8 5 80
 select g.name,platform,controller,count(1),group_concat(u.name,', ') comrades
 from games g, users u, libraries l
 where 1=1
@@ -324,6 +326,7 @@ $(grep '^do_report' $0 | sed -e 's/do_report_//; s/() *{//; s/^/           /g')"
 ##############################################################################
 echo ''
 
+[ $# -eq 0 ] && do_print_help && exit
 do_check
 case $1 in 
     help) do_print_help;;
