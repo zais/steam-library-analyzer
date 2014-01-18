@@ -37,6 +37,8 @@
 <p>Just another steam related trash on the internet.
 I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations. My knowledge is empirical, don't blame me for that :).</p>
 
+<p>Tested on Mac OS X 10.9, should work on any modern linux distro and in <a href="http://cygwin.com">cygwin</a> may be.</p>
+
 <h2>
 <a name="why-do-i-need-it" class="anchor" href="#why-do-i-need-it"><span class="octicon octicon-link"></span></a>Why do I need it?</h2>
 
@@ -118,6 +120,13 @@ Alien Swarm                               win                   2      Foo, Bill
 <ul>
 <li>Filter number of accounts to analyze, use <code>friends="..."</code> if you are running script with <code>update friends</code> option.</li>
 <li>Do not run it to frequently (we all love Steam, do not overwhelm them with DDoS attacks ;) )</li>
+</ul><h2>
+<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues:</h2>
+
+<ul>
+<li>May not work with sqlite3 &lt; 3.7.13</li>
+<li>Some games can not be parsed (steam returns nothing via store api)</li>
+<li>Bugs?</li>
 </ul><h2>
 <a name="steam-api-used" class="anchor" href="#steam-api-used"><span class="octicon octicon-link"></span></a>Steam API used:</h2>
 
