@@ -4,6 +4,8 @@ Steam Library Analyzer (CLI)
 Just another steam related trash on the internet.
 I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations. My knowledge is empirical, don't blame me for that :).
 
+Tested on Mac OS X 10.9, should work on any modern linux distro and in [cygwin](http://cygwin.com) may be.
+
 
 Why do I need it?
 -----------
@@ -85,6 +87,12 @@ Recommendations:
 * Filter number of accounts to analyze, use ``` friends="..." ``` if you are running script with ``` update friends ``` option.
 * Do not run it to frequently (we all love Steam, do not overwhelm them with DDoS attacks ;) )
 
+Issues:
+-----------
+
+* May not work with sqlite3 < 3.7.13
+* Some games can not be parsed (steam returns nothing via store api)
+* Bugs?
 
 Steam API used:
 -----------
