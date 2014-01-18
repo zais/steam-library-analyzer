@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Steam library analyzer : Steam Library Analyzer (CLI)" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Steam library analyzer</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/zais/steam_library_analyzer">View on GitHub</a>
+
+          <h1 id="project_title">Steam library analyzer</h1>
+          <h2 id="project_tagline">Steam Library Analyzer (CLI)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/zais/steam_library_analyzer/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/zais/steam_library_analyzer/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="steam-library-analyzer-cli" class="anchor" href="#steam-library-analyzer-cli"><span class="octicon octicon-link"></span></a>Steam Library Analyzer (CLI)</h1>
+
+<p>Just another steam related trash on the internet.
+I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations. My knowledge is empirical, don't blame me for that :).</p>
+
+<h2>
+<a name="why-do-i-need-it" class="anchor" href="#why-do-i-need-it"><span class="octicon octicon-link"></span></a>Why do I need it?</h2>
+
+<p>Because I'd like to:</p>
+
+<p><strong><em>Find local coop enabled games:</em></strong></p>
+
+<pre>
+$ ./steam_library_analyzer.sh local_coop
+
+name                                      platform    controller
+----------------------------------------  ----------  ----------
+Shadowgrounds                             win mac               
+Shank                                     win lin ma  full      
+Shadowgrounds Survivor                    win mac               
+Shatter                                   win lin ma  partial   
+Trine                                     win mac     partial   
+Trine 2: Complete Story                   win lin ma  full      
+...
+</pre>
+
+<p><strong><em>Find windows only games:</em></strong></p>
+
+<pre>
+$ ./steam_library_analyzer.sh win_only
+
+name                                      genre                                               controller
+----------------------------------------  --------------------------------------------------  ----------
+Alien Swarm                               Action                                                        
+Darkest Hour: Europe '44-'45                                                                            
+Vigil: Blood Bitterness                   RPG/Indie                                                     
+Titan Quest                               Action/RPG                                                    
+Company of Heroes                         Action/Strategy                                               
+...
+</pre>
+
+<p><strong><em>Find coop games which can be played with my frieds:</em></strong></p>
+
+<pre>
+$ ./steam_library_analyzer.sh friends_coop
+
+name                                      platform    controll  count  comrades
+----------------------------------------  ----------  --------  -----  ------------------------------
+Left 4 Dead 2                             win lin ma  full      3      John, Bill, Kevin
+Magicka                                   win         full      3      Foo, Bill, Kevin 
+Terraria                                  win                   3      John, Bill, Kevin
+Trine 2: Complete Story                   win lin ma  full      2      Bill, Bar
+Alien Swarm                               win                   2      Foo, Bill
+...
+</pre>
+
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies:</h2>
+
+<p><strong><em>Steam level dependencies:</em></strong></p>
+
+<ul>
+<li>Steam profile have to be public (at least when you run update)</li>
+</ul><p><strong><em>OS level dependencies:</em></strong></p>
+
+<ul>
+<li><a href="http://perl.org">perl</a></li>
+<li><a href="http://sqlite.org">sqlite3</a></li>
+<li><a href="http://xmlstar.sourceforge.net">xmlstarlet</a></li>
+<li><a href="http://gnu.org/s/wget">wget</a></li>
+<li><a href="http://stedolan.github.io/jq">jq</a></li>
+</ul><h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use:</h2>
+
+<ol>
+<li>Copy script to dedicated folder.</li>
+<li>Edit script and enter your steam id.</li>
+<li>Run: <code>./steam_library_analyzer.sh update</code> (add 'friends' if you'd like to analyze friends libraries as well)</li>
+<li>Play with reports: <code>./steam_library_analyzer.sh local_coop</code>
+</li>
+</ol><h2>
+<a name="recommendations" class="anchor" href="#recommendations"><span class="octicon octicon-link"></span></a>Recommendations:</h2>
+
+<ul>
+<li>Filter number of accounts to analyze, use <code>friends="..."</code> if you are running script with <code>update friends</code> option.</li>
+<li>Do not run it to frequently (we all love Steam, do not overwhelm them with DDoS attacks ;) )</li>
+</ul><h2>
+<a name="steam-api-used" class="anchor" href="#steam-api-used"><span class="octicon octicon-link"></span></a>Steam API used:</h2>
+
+<pre>
+* user   : http://steamcommunity.com/profiles/STEAM_ID_HERE/games?tab=all&amp;xml=1
+* friends: http://steamcommunity.com/profiles/STEAM_ID_HERE/friends?xml=1
+* game   : http://store.steampowered.com/api/appdetails/?appids=GAME_ID_HERE&amp;cc=us&amp;l=english
+</pre>
+
+<p>Where STEAM_ID_HERE is 17 digits steam id
+and GAME_ID_HERE is game id.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Steam library analyzer maintained by <a href="https://github.com/zais">zais</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
