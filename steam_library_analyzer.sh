@@ -1,7 +1,7 @@
 #!/bin/sh
 ##############################################################################
 # Author : https://github.com/zais
-# Version: 0.1.20140118.1230
+# Version: 0.1.20140118.1651
 # License: GPLv2 ('gnu.org/licenses/gpl-2.0.html')
 ##############################################################################
 # Prereqs:
@@ -87,12 +87,12 @@ do_process_steam_id() {
 
 
 do_update() {
-  mv libraries.csv libraries.csv.$(date +%F) 2>/dev/null
-  mv users.csv     users.csv.$(date +%F)     2>/dev/null
-  mv games.csv     games.csv.$(date +%F)     2>/dev/null
-  mv games.db      games.db.$(date +%F)      2>/dev/null
-  mv friends.xml   friends.xml.$(date +%F)   2>/dev/null
-  mkdir -p archive && mv *.$(date +%F) archive/
+  mv libraries.csv  libraries.csv.$(date +%F)   2>/dev/null
+  mv users.csv      users.csv.$(date +%F)       2>/dev/null
+  mv games.csv      games.csv.$(date +%F)       2>/dev/null
+  mv games.db       games.db.$(date +%F)        2>/dev/null
+  mv friends.xml    friends.xml.$(date +%F)     2>/dev/null
+  mkdir -p archive && mv *.$(date +%F) archive/ 2>/dev/null
   
   # include friends to db
   echo "$*" | grep -q friends
