@@ -4,7 +4,7 @@
 # Version: 0.1.20140118.1651
 # License: GPLv2 ('gnu.org/licenses/gpl-2.0.html')
 ##############################################################################
-# todo   : rewrite using python (remove most of os level prereqs)
+# todo   : rewrite using python (remove most of os level prereqs) 
 ##############################################################################
 # Prereqs:
 #   Steam level:
