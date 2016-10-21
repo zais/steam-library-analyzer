@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="SteamLA : Steam Library Analyzer (CLI)" />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <title>SteamLA</title>
+    <title>SteamLA by zais</title>
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/zais/steam_library_analyzer">View on GitHub</a>
+    <header>
+      <div class="container">
+        <h1>SteamLA</h1>
+        <h2>Steam Library Analyzer (CLI)</h2>
 
-          <h1 id="project_title">SteamLA</h1>
-          <h2 id="project_tagline">Steam Library Analyzer (CLI)</h2>
+        <section id="downloads">
+          <a href="https://github.com/zais/steam_library_analyzer/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/zais/steam_library_analyzer/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/zais/steam_library_analyzer" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/zais/steam_library_analyzer/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/zais/steam_library_analyzer/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="container">
+      <section id="main_content">
         <h1>
-<a name="steam-library-analyzer-cli" class="anchor" href="#steam-library-analyzer-cli"><span class="octicon octicon-link"></span></a>Steam Library Analyzer (CLI)</h1>
+<a id="steam-library-analyzer-cli" class="anchor" href="#steam-library-analyzer-cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Steam Library Analyzer (CLI)</h1>
 
 <p>Just another steam related trash on the internet.
 I'm not a programmer or sql guru, so this is just almost-working tool i'm using to solve my own little problems with Steam client limitations. My knowledge is empirical, don't blame me for that :).</p>
@@ -40,7 +37,7 @@ I'm not a programmer or sql guru, so this is just almost-working tool i'm using 
 <p>Tested on Mac OS X 10.9, should work on any modern linux distro and in <a href="http://cygwin.com">cygwin</a> may be.</p>
 
 <h2>
-<a name="why-do-i-need-it" class="anchor" href="#why-do-i-need-it"><span class="octicon octicon-link"></span></a>Why do I need it?</h2>
+<a id="why-do-i-need-it" class="anchor" href="#why-do-i-need-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why do I need it?</h2>
 
 <p>Because I'd like to:</p>
 
@@ -91,13 +88,15 @@ Alien Swarm                               win                   2      Foo, Bill
 </pre>
 
 <h2>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies:</h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies:</h2>
 
 <p><strong><em>Steam level dependencies:</em></strong></p>
 
 <ul>
 <li>Steam profile have to be public (at least when you run update)</li>
-</ul><p><strong><em>OS level dependencies:</em></strong></p>
+</ul>
+
+<p><strong><em>OS level dependencies:</em></strong></p>
 
 <ul>
 <li><a href="http://perl.org">perl</a></li>
@@ -105,8 +104,10 @@ Alien Swarm                               win                   2      Foo, Bill
 <li><a href="http://xmlstar.sourceforge.net">xmlstarlet</a></li>
 <li><a href="http://gnu.org/s/wget">wget</a></li>
 <li><a href="http://stedolan.github.io/jq">jq</a></li>
-</ul><h2>
-<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use:</h2>
+</ul>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use:</h2>
 
 <ol>
 <li>Copy script to dedicated folder.</li>
@@ -114,21 +115,27 @@ Alien Swarm                               win                   2      Foo, Bill
 <li>Run: <code>./steam_library_analyzer.sh update</code> (add 'friends' if you'd like to analyze friends libraries as well)</li>
 <li>Play with reports: <code>./steam_library_analyzer.sh local_coop</code>
 </li>
-</ol><h2>
-<a name="recommendations" class="anchor" href="#recommendations"><span class="octicon octicon-link"></span></a>Recommendations:</h2>
+</ol>
+
+<h2>
+<a id="recommendations" class="anchor" href="#recommendations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recommendations:</h2>
 
 <ul>
 <li>Filter number of accounts to analyze, use <code>friends="..."</code> if you are running script with <code>update friends</code> option.</li>
 <li>Do not run it to frequently (we all love Steam, do not overwhelm them with DDoS attacks ;) )</li>
-</ul><h2>
-<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues:</h2>
+</ul>
+
+<h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues:</h2>
 
 <ul>
 <li>May not work with sqlite3 &lt; 3.7.13</li>
 <li>Some games can not be parsed (steam returns nothing via store api)</li>
 <li>Bugs?</li>
-</ul><h2>
-<a name="steam-api-used" class="anchor" href="#steam-api-used"><span class="octicon octicon-link"></span></a>Steam API used:</h2>
+</ul>
+
+<h2>
+<a id="steam-api-used" class="anchor" href="#steam-api-used" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Steam API used:</h2>
 
 <pre>
 * user   : http://steamcommunity.com/profiles/STEAM_ID_HERE/games?tab=all&amp;xml=1
@@ -141,14 +148,6 @@ and GAME_ID_HERE is game id.</p>
       </section>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">SteamLA maintained by <a href="https://github.com/zais">zais</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -159,7 +158,6 @@ and GAME_ID_HERE is game id.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
